@@ -1,9 +1,6 @@
 #include "OneWire.h"
 #include <Wire.h>
 
-// From: https://github.com/cybergibbons/DS2482_OneWire
-// With fixes applied from user Close20 at https://arduino.stackexchange.com/questions/233/are-there-any-good-and-maintained-libraries-for-using-ds2482-i2c-to-1-wire-bridg
-
 // Constructor with no parameters for compatability with OneWire lib
 OneWire::OneWire()
 {
