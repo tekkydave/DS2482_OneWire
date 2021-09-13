@@ -95,7 +95,7 @@ private:
 	uint8_t mError;
 
 	uint8_t searchAddress[8];
-	uint8_t searchLastDiscrepancy;
+	int8_t searchLastDiscrepancy = -1;
 	uint8_t searchLastDeviceFlag;
 };
 

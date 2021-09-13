@@ -1,6 +1,9 @@
 #include "OneWire.h"
 #include <Wire.h>
 
+// From: https://github.com/cybergibbons/DS2482_OneWire
+// With fixes applied from user Close20 at https://arduino.stackexchange.com/questions/233/are-there-any-good-and-maintained-libraries-for-using-ds2482-i2c-to-1-wire-bridg
+
 // Constructor with no parameters for compatability with OneWire lib
 OneWire::OneWire()
 {
@@ -231,7 +234,7 @@ void OneWire::wireSelect(const uint8_t rom[8])
 //  1-Wire reset seatch algorithm
 void OneWire::wireResetSearch()
 {
-	searchLastDiscrepancy = 0;
+	searchLastDiscrepancy = -1;
 	searchLastDeviceFlag = 0;
 
 	for (int i = 0; i < 8; i++)
@@ -259,7 +262,7 @@ uint8_t OneWire::setChannel(uint8_t ch){
 uint8_t OneWire::wireSearch(uint8_t *address)
 {
 	uint8_t direction;
-	uint8_t last_zero=0;
+	int8_t last_zero=-1;
 
 	if (searchLastDeviceFlag)
 		return 0;
@@ -314,7 +317,7 @@ uint8_t OneWire::wireSearch(uint8_t *address)
 
 	searchLastDiscrepancy = last_zero;
 
-	if (!last_zero)
+	if (last_zero == -1)
 		searchLastDeviceFlag = 1;
 
 	for (uint8_t i=0; i<8; i++)
