@@ -20,6 +20,15 @@ OneWire::OneWire(uint8_t address)
 	Wire.begin();
 }
 
+OneWire::OneWire(uint8_t address, uint8_t SDA_Pin, uint8_t SCL_Pin)
+{
+  // Address is determined by two pins on the DS2482 AD1/AD0
+  // Pass 0b00, 0b01, 0b10 or 0b11
+  mAddress = 0x18 | address;
+  mError = 0;
+  //Wire.begin(SDA_Pin, SCL_Pin);
+}
+
 uint8_t OneWire::getAddress()
 {
 	return mAddress;
