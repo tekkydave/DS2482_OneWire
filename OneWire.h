@@ -48,6 +48,7 @@ class OneWire
 public:
 	OneWire();
 	OneWire(uint8_t address);
+	OneWire(uint8_t address, uint8_t SDA_Pin, uint8_t SCL_Pin);
 
 	uint8_t getAddress();
 	uint8_t getError();
