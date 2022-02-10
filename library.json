@@ -1,0 +1,25 @@
+{
+  "name": "DS2482_OneWire",
+  "version": "1.0.0",
+  "description": "A OneWire library using the DS2482 I2C->1-Wire bridge. Forked from cybergibbons/DS2482_OneWire",
+  "keywords": "DS2482, 1-wire",
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/tekkydave/DS2482_OneWire"
+  },
+  "authors":
+  {
+    "name": "tekkydave",
+    "email": "",
+    "url": "",
+    "maintainer": false
+  },
+  "license": "GPL",
+  "homepage": "",
+  "dependencies": {
+    
+  },
+  "frameworks": "*",
+  "platforms": "*"
+}
